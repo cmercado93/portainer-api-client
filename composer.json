@@ -1,0 +1,30 @@
+{
+    "name": "cmercado93/portainer-api-client",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Cmercado93\\PortainerApiClient\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Cmercado93\\PortainerApiClient\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Carlos Mercado",
+            "email": "cmercado93@outlook.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    },
+    "require": {
+        "symfony/yaml": "v6.2.2",
+        "vlucas/phpdotenv": "5.5.x-dev",
+        "curl/curl": "dev-master"
+    }
+}
