@@ -1,6 +1,6 @@
 <?php
 
-namespace Cmercado93\PortainerApiClient\Exceptions;
+namespace Cmercado93\PortainerApiClient\Api\Http;
 
 use Curl\Curl;
 
@@ -22,6 +22,12 @@ class CurlException extends \Exception
 
     public function getResponse()
     {
-        return $this->curl->response;
+        $response = $this->curl->getResponse();
+
+        if ($tmp = json_decode($response, true)) {
+            $response = $tmp;
+        }
+
+        return $response;
     }
 }

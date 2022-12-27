@@ -1,9 +1,9 @@
 <?php
 
-namespace Cmercado93\PortainerApiClient\Api;
+namespace Cmercado93\PortainerApiClient\Api\Http;
 
-use Cmercado93\PortainerApiClient\Exceptions\CurlException;
 use Curl\Curl as CurlLib;
+use Cmercado93\PortainerApiClient\Api\Http\CurlException;
 
 class Curl
 {
@@ -86,11 +86,11 @@ class Curl
         }
 
 
-        if ($this->curl->error) {
-            throw new CurlException($this->curl->errorMessage, $this->curl->errorCode, $this->curl);
+        if ($this->curl->isError()) {
+            throw new CurlException($this->curl->getErrorMessage(), $this->curl->getErrorCode(), $this->curl);
         }
 
-        return json_decode(json_encode($this->curl->response), true);
+        return json_decode($this->curl->getResponse(), true);
     }
 
     protected function makeUrl($uri, array $data = [])
